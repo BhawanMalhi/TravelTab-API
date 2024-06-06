@@ -139,6 +139,12 @@
         "category": "shopping",
         "amount": "23",
         "discription": "shirt"
+      },
+      {
+        "id": "18b3d334-43f2-466b-bcfe-177e61087b7b",
+        "category": "housing",
+        "amount": "135",
+        "discription": "rented an airbnb for three days"
       }
     ]
   }

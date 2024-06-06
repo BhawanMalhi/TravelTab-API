@@ -62,38 +62,7 @@ function readTrips() {
     res.status(201).send(newExpense);
   });
 
-  // router.post("/:id/addExpense", (req, res) => {
-  //   const trips = readTrips();
-  //   const requestedId = req.params.id;
-  //   const singleTrip = trips.find(t => t.id === requestedId);
-  //   if (singleTrip) {
-  //     singleTrip.expenses.push(req.body);
-  //     writeTrips(trips);
-  //     res.status(201).json(singleTrip);
-  //   } else {
-  //     res.status(404).json({ message: 'Trip not found' });
-  //   }
-  // });
 
-
-  // router.post("/:id/addExpense", (req, res) => {
-  //   const trips = readTrips();
-  //   const requestedId = req.params.id;
-  //   const trip = trips.find(t => t.id === requestedId);
-  //   if (trip) {
-  //     const newExpense = req.body;
-  //     if (!newExpense.name || !newExpense.amount || !newExpense.description) {
-  //       return res.status(400).json({ message: 'Invalid expense data' });
-  //     }
-  //     trip.expenses.push(newExpense);
-  //     // writeTrips(trips);
-  //     fs.writeFileSync("./data/trips.json", JSON.stringify(trips));
-  //     res.status(201).send(newExpense);
-     
-  //   } else {
-  //     res.status(404).json({ message: 'Trip not found' });
-  //   }
-  // });
 
 
   
