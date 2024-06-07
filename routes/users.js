@@ -28,18 +28,7 @@ function readUsers() {
   });
 
   
-  // Login endpoint
-  router.post('/login', (req, res) => {
-    const users = readUsers();
-    const { email, password } = req.body;
-  
-    const user = users.find(user => user.email === email && user.password === password);
-    if (user) {
-      res.status(200).json({ success: true });
-    } else {
-      res.status(401).json({ success: false, message: 'Invalid email or password' });
-    }
-  });
+
   
   
 

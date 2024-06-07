@@ -15,12 +15,12 @@ function readTrips() {
   });
 
   function ran() {
-    return Math.floor(Math.random() * 12);
+    return Math.floor(Math.random() * 13);
   }
   router.get("/:id", (req, res) => {
     const trips = readTrips();
     const requestedId = req.params.id;
-    console.log(requestedId);
+
     const singleTrip = trips.find(t => t.id === requestedId);
     if (singleTrip) {
       res.json(singleTrip);
@@ -30,7 +30,19 @@ function readTrips() {
     res.send(singleTrip);
   });
   
-  
+  router.delete("/:id", (req, res) => {
+    const trips = readTrips();
+    const tripId = req.params.id;
+    const updatedTrips = trips.filter(trip => trip.id !== tripId);
+
+    if (trips.length === updatedTrips.length) {
+        return res.status(404).json({ message: "Trip not found" });
+    }
+
+   
+    fs.writeFileSync("./data/trips.json", JSON.stringify(updatedTrips));
+    res.status(200).json({ message: "Trip deleted successfully" });
+});
 
   router.post("/", (req, res) => {
     const trips = readTrips();
@@ -63,7 +75,7 @@ function readTrips() {
   });
 
 
-
+ 
 
   
   module.exports = router;
